@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>krYptONeXuZ</title>
+  </head>
+
+  <style>
+    body {
+      display: block;
+      background-color: black;      
+    }
+
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #username-container {
+      flex: 0 0 auto;
+    }
+
+    #messages-container {
+      flex: 1 1 auto;
+      overflow-y: scroll;
+    }
+
+
+    #sent-messages {
+      list-style: none;
+      padding-left: 18px;
+      padding-right: 18px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      margin: 10px;
+      color: red;
+    } 
+
+    #message-form {
+      margin: 5px;
+      text-align: center;
+      color: red;
+    }
+
+    #input-message {
+      width: 30%;
+      height: 5vh;
+      background-color: #000;
+      color: #fff;
+      border-color: rgb(193, 16, 16);
+      border-style: 0px;
+      text-align: center;
+      /* padding-right: 100px;  */
+    }
+
+
+
+    #input-username {
+      width: 16%;
+      height: 3.3vh;
+      border-style: none;
+      padding: 5px;
+    }
+
+    #send {
+      background-color: rgb(193, 16, 16);
+      height: 6vh;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    #logout {
+      display: block;
+      background-color: rgb(193, 16, 16);
+      height: 6vh;
+      padding: 10px;
+    }
+    
+    #messages {
+        list-style: none;
+    }
+  </style>
+
+
+  <body>
+    
+    <div id="chat-container">
+        <ul id="sent-messages"></ul>
+        <form id="message-form">
+        <div id="username-container">
+          <input id="input-username" placeholder="Enter your username" autocomplete="off" />
+        </div>
+        <div id="messages-container">
+          <ul id="messages"></ul>
+        </div>
+        <input id="input-message" autocomplete="off" />
+        <button id="send">Send</button>
+      </form>
+      </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+
+      const form = document.getElementById('message-form');
+      const usernameInput = document.getElementById('input-username');
+      const input = document.getElementById('input-message');
+      const messages = document.getElementById('messages');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = usernameInput.value.trim();
+        const message = input.value.trim();
+
+        if (username !== '' && message !== '') {
+          const fullMessage = `${username}: ${message}`;
+          socket.emit('chat message', fullMessage);
+          input.value = '';
+        }
+      });
+
+	socket.on('chat message', (message) => {
+	  const li = document.createElement('li');
+	  li.textContent = `${message.username}: ${message.content}`;
+	  messages.appendChild(li);
+	});
+
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- https://chat.openai.com/share/deded5c1-8121-429d-a983-537785e2db7a -->
