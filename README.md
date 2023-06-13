@@ -60,6 +60,7 @@ Update the package.json file with the following configuration:
 }
 `
 
+## Contributions
 Contributing Contributions from Contributors are welcome! 
 If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request 🤗.
 
