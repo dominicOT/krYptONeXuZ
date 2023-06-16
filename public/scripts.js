@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io('/krYptONeXuZ');
 
 const form = document.getElementById('message-form');
 const usernameInput = document.getElementById('input-username');
