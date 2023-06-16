@@ -33,7 +33,7 @@ Enter your desired username in the username input field.
 ### Update the package.json file with the following configuration:
 `
 {
-  "name": "kryptonexuz", <br>
+  "name": "kryptonexuz",
   "version": "1.0.0",
   "description": "desktop chat room",
   "main": "server.js",
