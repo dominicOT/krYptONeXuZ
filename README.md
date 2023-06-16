@@ -7,12 +7,6 @@ Username: Users can enter their username to identify themselves in the chat. <br
 Chat history: The application temporarily keeps track of chat messages and displays them to users.<br>
 
 # Installation
-Find the packaged file in the Release section.
-<br>Download the latest release / version.
-<br>Open your system's security software.
-<br>Add the executable file to the Whitelist.
-
-# Contribution
 Clone the repository: <br>
 ` git clone https://github.com/dominicOT/kryptonexuz.git `
 
