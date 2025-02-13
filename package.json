@@ -1,7 +1,7 @@
 {
   "name": "kryptonexuz",
   "version": "1.0.0",
-  "description": "desktop chat room",
+  "description": "web chat room",
   "main": "server.js",
   "scripts": {
     "test": "npm run test:integration",
